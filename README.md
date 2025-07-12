@@ -72,7 +72,12 @@
 
     - #### Utilização de uma criptografia assimetrica. Se baseando na criptografia usado pelas rede I2P e Tor.
 
-![]()
+<h1 align="center">Funcionamento.</h1>
+
+<p align="center">
+  <img src="img/exemplos_codigo.png" alt="Exemplo 1 P2P" />
+</p>
+
 
 
 ### Requisitos:
