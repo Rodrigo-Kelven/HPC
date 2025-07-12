@@ -12,6 +12,17 @@
 ## Uso de Servidores de Descoberta (DHT – Tabela de Hash Distribuída)
 ### Em redes P2P descentralizadas, como as usadas no BitTorrent, IPFS e I2P, os nós não precisam saber diretamente o IP de outro nó. Em vez disso, utilizam sistemas como DHT (Distributed Hash Table) para encontrar outros nós na rede.
 
+
+<h2 align="center">Exemplos de redes P2P.</h2>
+
+<p align="center">
+  <img src="img/exemple_2.png" alt="Exemplo 1 P2P" width="45%" />
+  <img src="img/exemple_1.png" alt="Exemplo 1 P2P" width="45%" />
+</p>
+
+
+
+
 ### Como funciona:
 
 - #### Um nó (chamado de peer) pode se registrar em um servidor de descoberta ou tabela de hash distribuída.
@@ -60,6 +71,8 @@
 - ### Criptografia da Mensagem.
 
     - #### Utilização de uma criptografia assimetrica. Se baseando na criptografia usado pelas rede I2P e Tor.
+
+![]()
 
 
 ### Requisitos:
