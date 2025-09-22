@@ -51,7 +51,7 @@
 ## Problemas encontrados.
 - ## Como encontrar outros nós?
 
-    - #### Vamos supor que nao exista um servidor, ok, os próprios nós deveram ser os servidores, mas como eu vou saber o endereço do nó X que eu quero me comunicar? 
+    - #### Supondo que nao exista um servidor, ok, os próprios nós deveram ser os servidores, mas como eu vou saber o endereço do nó X que eu quero me comunicar? 
 
 - ## Usabilidade.
 
