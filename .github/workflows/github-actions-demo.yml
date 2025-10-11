@@ -24,9 +24,9 @@ jobs:
           go-version: '1.24'
 
       # Instalar dependências Go (caso existam)
-      - name: Install Go dependencies
-        run: |
-          go mod tidy
+      #- name: Install Go dependencies
+      #  run: |
+      #    go mod tidy
 
       # Instalar as ferramentas de linting e formatação
       - name: Install Go tools
