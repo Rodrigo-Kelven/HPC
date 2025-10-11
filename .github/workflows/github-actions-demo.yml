@@ -1,18 +1,70 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+name: Go validations
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  Explore-GitHub-Actions:
+  go-checks:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v4
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      # Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Configurar Go
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.24'
+
+      # Instalar dependências Go (caso existam)
+      - name: Install Go dependencies
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+          go mod tidy
+
+      # Instalar as ferramentas de linting e formatação
+      - name: Install Go tools
+        run: |
+          go install golang.org/x/lint/golint@latest
+          go install golang.org/x/tools/cmd/goimports@latest
+          go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      # Rodar gofmt
+      - name: Run gofmt
+        run: |
+          echo "Running gofmt..."
+          gofmt -w .
+          git diff --exit-code || (echo "gofmt: Code needs formatting!" && exit 1)
+
+      # Rodar golint
+      - name: Run golint
+        run: |
+          echo "Running golint..."
+          golint ./...
+          # Se golint encontrar algum erro, a pipeline falha
+          if [ $? -ne 0 ]; then
+            echo "golint: Found linting issues!" && exit 1
+          fi
+
+      # Rodar goimports
+      - name: Run goimports
+        run: |
+          echo "Running goimports..."
+          goimports -w .
+          git diff --exit-code || (echo "goimports: Code needs imports formatting!" && exit 1)
+
+      # Rodar staticcheck
+      - name: Run staticcheck
+        run: |
+          echo "Running staticcheck..."
+          staticcheck ./...
+          # Se staticcheck encontrar problemas, a pipeline falha
+          if [ $? -ne 0 ]; then
+            echo "staticcheck: Found issues!" && exit 1
+          fi

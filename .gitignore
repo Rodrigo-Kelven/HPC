@@ -1,0 +1,73 @@
+# Diretórios e arquivos do Go
+# Binários e arquivos de compilação
+/bin/
+/obj/
+/out/
+/vendor/
+/.go_workspace
+/.vscode/
+
+# Diretórios de build locais (gerados pelo Go)
+**/bin/
+**/obj/
+
+# Dependências do Go
+# Arquivos relacionados ao gerenciamento de dependências do Go
+go.sum
+go.mod
+
+# Ferramentas de verificação, como gosec, golangci-lint, etc
+*.log
+*.err
+
+# Arquivos de configuração do Go
+/.idea
+/.vscode
+/.config
+
+# Arquivos temporários do editor
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+*.pid
+*.prof
+
+# Docker
+# Arquivos de configuração e dados do Docker
+#docker-compose.override.yml
+#.dockerignore
+
+# Arquivos de configuração de Docker específicos
+#docker-compose.yml
+
+# Arquivos de configuração de contêineres do Docker (se existir)
+#docker-compose.override.yml
+#Dockerfile
+
+# Configuração de dependência de ambiente
+.env
+*.env
+
+# Arquivos de build do Swagger (se você usa o Swagger)
+swagger.json
+swagger.yaml
+
+# Arquivos de logs e de trabalho do sistema
+*.log
+*.pid
+*.swp
+
+# Arquivos temporários do Vim
+*.swp
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Go-specific
+# Arquivos do binário compilado
+*.exe
+*.out
+*.test
