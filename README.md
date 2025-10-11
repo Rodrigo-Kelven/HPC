@@ -91,7 +91,8 @@
 - #### Ativar o cliente:
         go run Client.py
 
-
+### Case deseje contribuir execute o script de validação para correção e reestruturação de código.
+        ./go_ckeck.sh
 
 
 
