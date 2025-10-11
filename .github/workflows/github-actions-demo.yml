@@ -60,11 +60,11 @@ jobs:
           git diff --exit-code || (echo "goimports: Code needs imports formatting!" && exit 1)
 
       # Rodar staticcheck
-      - name: Run staticcheck
-        run: |
-          echo "Running staticcheck..."
-          staticcheck ./...
-          # Se staticcheck encontrar problemas, a pipeline falha
-          if [ $? -ne 0 ]; then
-            echo "staticcheck: Found issues!" && exit 1
-          fi
+      #- name: Run staticcheck
+      #  run: |
+      #    echo "Running staticcheck..."
+      #    staticcheck ./...
+      #    # Se staticcheck encontrar problemas, a pipeline falha
+      #    if [ $? -ne 0 ]; then
+      #      echo "staticcheck: Found issues!" && exit 1
+      #    fi

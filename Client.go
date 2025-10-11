@@ -48,5 +48,9 @@ func chooseNode() {
 }
 
 func main() {
+	mainClient()
+}
+
+func mainClient() {
 	chooseNode()
 }
